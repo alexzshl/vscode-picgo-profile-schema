@@ -301,8 +301,7 @@
                         },
                         "port": {
                             "type": "string",
-                            "default": "36677",
-                            "pattern": "^[1-9][0-9]*$"
+                            "default": 36677
                         }
                     },
                     "logLevel": {
@@ -313,7 +312,7 @@
             }
         },
         "picgoPlugins": {
-            "description": "🍁 Controls wether to active the plugin.",
+            "description": "Controls wether to active the plugin.",
             "type": "object",
             "patternProperties": {
                 "^picgo-plugin-.*$": {

@@ -2,31 +2,58 @@
     "title": "picgo-profile-schema",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "definitions": {
-        "string-empty": {"const": ""},
+        "empty-string": {"const": ""},
         "repo": {
             "type": "string",
+            "pattern": "^[\\w-]+/[\\w-]+$",
+            "default": "",
             "description": "The name of your repo, include username and reponame. For example: \"microsoft/vscode\""
         },
         "branch": {
             "type": "string",
+            "not": {"$ref": "#/definitions/empty-string"},
             "default": "master"
         },
         "token": {
             "type": "string",
-            "pattern": "^[a-z0-9A-Z]*$"
+            "default": "",
+            "pattern": "^[a-z0-9A-Z]+$"
         },
         "path": {
-            "type": "string"
+            "type": "string",
+            "default": ""
         },
-        "customUrl": {
-            "type": "string"
-        },
-        "customPath": {
-            "type": "string"
+        "url": {
+            "type": "string",
+            "default": ""
         },
         "origin": {
             "description": "the git origin repository hosting, such as github/gitee",
             "type": "string"
+        },
+        "options": {
+            "type": "string",
+            "default": ""
+        },
+
+        "authId": {
+            "type": "string",
+            "default": "",
+            "pattern": "^[a-z0-9A-Z]+$"
+        },
+        "authKey": {
+            "type": "string",
+            "default": "",
+            "pattern": "^[a-z0-9A-Z]+$"
+        },
+        "bucket": {
+            "description": "name of bucket",
+            "type": "string",
+            "default": ""
+        },
+        "area": {
+            "type": "string",
+            "default": ""
         },
 
         "gitHosting": {
@@ -85,7 +112,7 @@
                     "properties": {
                         "repo": {"description": "The repository info, including username and reponame.\n\nFor example: if the repository url is \"https://github.com/microsoft/vscode\", the \"repo\" should be \"microsoft/vscode\""},
                         "token": {"description": "Github tokens: https://github.com/settings/tokens"},
-                        "customUrl": {"$ref": "#/definitions/customUrl"}
+                        "customUrl": {"$ref": "#/definitions/url"}
                     },
                     "required": ["repo", "token"],
                     "default": {
@@ -96,13 +123,13 @@
                 },
                 "qiniu": {
                     "properties": {
-                        "accessKey": {"type": "string", "default": ""},
-                        "secretKey": {"type": "string", "default": ""},
-                        "bucket": {"type": "string", "default": ""},
-                        "url": {"type": "string", "default": ""},
-                        "area": {"type": "string", "default": ""},
-                        "options": {"type": "string", "default": ""},
-                        "path": {"type": "string", "default": ""}
+                        "accessKey": {"$ref": "#/definitions/authKey"},
+                        "secretKey": {"$ref": "#/definitions/authKey"},
+                        "bucket": {"$ref": "#/definitions/bucket"},
+                        "url": {"$ref": "#/definitions/url"},
+                        "area": {"$ref": "#/definitions/area"},
+                        "options": {"$ref": "#/definitions/options"},
+                        "path": {"$ref": "#/definitions/path"}
                     },
                     "required": ["accessKey", "secretKey", "bucket", "url"],
                     "default": {
@@ -115,13 +142,13 @@
                 },
                 "tcyun": {
                     "properties": {
-                        "secretId": {"type": "string", "default": ""},
-                        "secretKey": {"type": "string", "default": ""},
-                        "bucket": {"type": "string", "default": ""},
+                        "secretId": {"$ref": "#/definitions/authId"},
+                        "secretKey": {"$ref": "#/definitions/authKey"},
+                        "bucket": {"$ref": "#/definitions/bucket"},
                         "appId": {"type": "string", "default": ""},
-                        "area": {"type": "string", "default": ""},
-                        "path": {"type": "string", "default": ""},
-                        "customUrl": {"type": "string", "default": ""},
+                        "area": {"$ref": "#/definitions/area"},
+                        "path": {"$ref": "#/definitions/path"},
+                        "customUrl": {"$ref": "#/definitions/url"},
                         "version": {"type": "string", "default": "v5", "enum": ["v5", "v4"]}
                     },
                     "required": ["secretId", "secretKey", "bucket", "appId", "area"],
@@ -136,13 +163,13 @@
                 "aliyun": {
                     "description": "AliYun OSS: https://oss.console.aliyun.com/bucket",
                     "properties": {
-                        "accessKeyId": {"type": "string", "default": ""},
-                        "accessKeySecret": {"type": "string", "default": ""},
-                        "bucket": {"type": "string", "default": "", "description": "name of bucket"},
-                        "area": {"type": "string", "default": "", "description": "for example: oss-cn-shanghai"},
-                        "path": {"type": "string", "default": ""},
-                        "customUrl": {"type": "string", "default": ""},
-                        "options": {"type": "string", "default": ""}
+                        "accessKeyId": {"$ref": "#/definitions/authId"},
+                        "accessKeySecret": {"$ref": "#/definitions/authKey"},
+                        "bucket": {"$ref": "#/definitions/bucket"},
+                        "area": {"$ref": "#/definitions/area", "description": "for example: oss-cn-shanghai"},
+                        "path": {"$ref": "#/definitions/path"},
+                        "customUrl": {"$ref": "#/definitions/url"},
+                        "options": {"$ref": "#/definitions/options"}
                     },
                     "required": ["accessKeyId", "accessKeySecret", "bucket", "area"],
                     "default": {
@@ -154,12 +181,12 @@
                 },
                 "upyun": {
                     "properties": {
-                        "bucket": {"type": "string", "default": ""},
+                        "bucket": {"$ref": "#/definitions/bucket"},
                         "operator": {"type": "string", "default": ""},
                         "password": {"type": "string", "default": ""},
-                        "options": {"type": "string", "default": ""},
-                        "path": {"type": "string", "default": ""},
-                        "url": {"type": "string", "default": ""}
+                        "options": {"$ref": "#/definitions/options"},
+                        "path": {"$ref": "#/definitions/path"},
+                        "url": {"$ref": "#/definitions/url"}
                     },
                     "required": ["bucket", "operator", "password", "url"],
                     "default": {
@@ -188,8 +215,8 @@
                         {"$ref": "#/definitions/gitHosting"}
                     ],
                     "properties": {
-                        "customUrl": {"$ref": "#/definitions/customUrl"},
-                        "customPath": {"$ref": "#/definitions/customPath"}
+                        "customUrl": {"$ref": "#/definitions/url"},
+                        "customPath": {"$ref": "#/definitions/path"}
                     },
                     "required": ["repo", "token"],
                     "default": {
@@ -205,7 +232,7 @@
                         {"$ref": "#/definitions/gitHosting"}
                     ],
                     "properties": {
-                        "customUrl": {"$ref": "#/definitions/customUrl"},
+                        "customUrl": {"$ref": "#/definitions/url"},
                         "origin": {"$ref": "#/definitions/origin", "default": "gitee"}
                     },
                     "required": ["repo", "token"],
@@ -324,8 +351,7 @@
                         },
                         "port": {
                             "type": "string",
-                            "default": "36677",
-                            "pattern": "^[1-9][0-9]*$"
+                            "default": 36677
                         }
                     },
                     "logLevel": {
@@ -336,7 +362,7 @@
             }
         },
         "picgoPlugins": {
-            "description": "🍁 Controls wether to active the plugin.",
+            "description": "Controls wether to active the plugin.",
             "type": "object",
             "patternProperties": {
                 "^picgo-plugin-.*$": {
