@@ -1,10 +1,12 @@
 # Picgo Profile Schema
 
-This extension provides schemas for [Picgo-Core](https://picgo.github.io/PicGo-Core-Doc/) and [PicGo-Gui](https://picgo.github.io/PicGo-Doc/).
+This extension provides schemas for profile of picgo:
+- [Picgo-Core](https://picgo.github.io/PicGo-Core-Doc/)
+- [PicGo-GUI](https://picgo.github.io/PicGo-Doc/)
 
 ## Features
 
-PicGo-Gui users can use the gui interface for configuration, but Picgo-Core users can only use the cli tool. With all due respect, it's not a good experience to configure dozens of settings with cli. So I wrote this extension to provide json schema foundation for Picgo profiles.
+PicGo-GUI users can have gui interface for configuration, but Picgo-Core users can only use the cli tool. With all due respect, it's not a good experience to configure dozens of settings with cli. So I wrote this extension to provide json schema foundation for picgo profile.
 
 **JSON Schema** provides data validation, more importantly, we can get smart tips after opening picgo profile with VSCode.
 
@@ -20,7 +22,7 @@ Picgo-Core and PicGo-Gui has different defalt profile path.
 - **Linux**: `~/.picgo/config.json`
 - **MacOS**: `~/.picgo/config.json`
 
-#### PicGo-Gui
+#### PicGo-GUI
 
 - Windows: `C:/Users/[user-name]/AppData/Roaming/picgo/data.json`
 - Linux: `$XDG_CONFIG_HOME/picgo/data.json` or `~/.config/picgo/data.json`
