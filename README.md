@@ -8,6 +8,8 @@ PicGo-Gui users can use the gui interface for configuration, but Picgo-Core user
 
 **JSON Schema** provides data validation, more importantly, we can get smart tips after opening picgo profile with VSCode.
 
+![image-20200601183545081](./media/picgo.gif)
+
 ### profile path
 
 Picgo-Core and PicGo-Gui has different defalt profile path.
