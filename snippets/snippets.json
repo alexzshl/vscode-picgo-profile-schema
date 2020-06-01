@@ -1,0 +1,10 @@
+{
+    "picgo.github": {
+        "prefix": "picgo.github",
+        "body": [
+            "github: {",
+            "    \"repo\": \"\"",
+            "}"
+        ]
+    }
+}

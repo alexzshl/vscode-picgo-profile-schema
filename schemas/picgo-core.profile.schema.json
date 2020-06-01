@@ -1,0 +1,349 @@
+{
+    "title": "picgo-profile-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "string-empty": {"const": ""},
+        "repo": {
+            "type": "string",
+            "description": "The name of your repo, include username and reponame. For example: \"microsoft/vscode\""
+        },
+        "branch": {
+            "type": "string",
+            "default": "master"
+        },
+        "token": {
+            "type": "string",
+            "pattern": "^[a-z0-9A-Z]*$"
+        },
+        "path": {
+            "type": "string"
+        },
+        "customUrl": {
+            "type": "string"
+        },
+        "customPath": {
+            "type": "string"
+        },
+        "origin": {
+            "description": "the git origin repository hosting, such as github/gitee",
+            "type": "string"
+        },
+
+        "gitHosting": {
+            "comment": "general git hosting",
+            "type": "object",
+            "properties": {
+                "repo": {"$ref": "#/definitions/repo"},
+                "branch": {"$ref": "#/definitions/branch"},
+                "token": {"$ref": "#/definitions/token"},
+                "path": {"$ref": "#/definitions/path"}
+            },
+            "required": ["repo", "branch", "token"]
+        }
+    },
+
+    "properties": {
+        "picBed": {
+            "description": "Picgo main configuration:\nhttps://picgo.github.io/PicGo-Core-Doc/zh/guide/config.html#picbed\n\nBuilt in uploaders:\nsmms: SM.MS\ntcyun: 腾讯云COS\nupyun: 又拍云\naliyun: 阿里云OSS\nqiniu: 七牛云\nimgur: Imgur\nweibo: 微博图床\ngithub: Github\n更多图床支持请下载插件。\n",
+            "properties": {
+                "uploder": {
+                    "description": "current uploader in use.",
+                    "type": "string",
+                    "default": "smms"
+                },
+                "smms": {
+                    "description": "SM.MS:\nhttps://sm.ms/",
+                    "type": "object",
+                    "properties": {
+                        "token": {"$ref": "#/definitions/token"}
+                    },
+                    "default": {
+                        "token": ""
+                    }
+                },
+                "imgur": {
+                    "description": "Imgur: https://imgur.com/",
+                    "type": "object",
+                    "properties": {
+                        "clientId": {
+                            "type": "string"
+                        },
+                        "proxy": {
+                            "description": "for example: http://127.0.0.1:1080",
+                            "type": "string"
+                        }
+                    },
+                    "required": ["clientId"],
+                    "default": {
+                        "clientId": ""
+                    }
+                },
+                "github": {
+                    "description": "Github: https://github.com/",
+                    "type": "object",
+                    "allOf": [{"$ref": "#/definitions/gitHosting"}],
+                    "properties": {
+                        "repo": {"description": "The repository info, including username and reponame.\n\nFor example: if the repository url is \"https://github.com/microsoft/vscode\", the \"repo\" should be \"microsoft/vscode\""},
+                        "token": {"description": "Github tokens: https://github.com/settings/tokens"},
+                        "customUrl": {"$ref": "#/definitions/customUrl"}
+                    },
+                    "required": ["repo", "token"],
+                    "default": {
+                        "repo": "",
+                        "branch": "master",
+                        "token": ""
+                    }
+                },
+                "qiniu": {
+                    "properties": {
+                        "accessKey": {"type": "string", "default": ""},
+                        "secretKey": {"type": "string", "default": ""},
+                        "bucket": {"type": "string", "default": ""},
+                        "url": {"type": "string", "default": ""},
+                        "area": {"type": "string", "default": ""},
+                        "options": {"type": "string", "default": ""},
+                        "path": {"type": "string", "default": ""}
+                    },
+                    "required": ["accessKey", "secretKey", "bucket", "url"],
+                    "default": {
+                        "accessKey": "",
+                        "secretKey": "",
+                        "bucket": "",
+                        "area": "",
+                        "url": ""
+                    }
+                },
+                "tcyun": {
+                    "properties": {
+                        "secretId": {"type": "string", "default": ""},
+                        "secretKey": {"type": "string", "default": ""},
+                        "bucket": {"type": "string", "default": ""},
+                        "appId": {"type": "string", "default": ""},
+                        "area": {"type": "string", "default": ""},
+                        "path": {"type": "string", "default": ""},
+                        "customUrl": {"type": "string", "default": ""},
+                        "version": {"type": "string", "default": "v5", "enum": ["v5", "v4"]}
+                    },
+                    "required": ["secretId", "secretKey", "bucket", "appId", "area"],
+                    "default": {
+                        "secretId": "",
+                        "secretKey": "",
+                        "appId": "",
+                        "bucket": "",
+                        "area": ""
+                    }
+                },
+                "aliyun": {
+                    "description": "AliYun OSS: https://oss.console.aliyun.com/bucket",
+                    "properties": {
+                        "accessKeyId": {"type": "string", "default": ""},
+                        "accessKeySecret": {"type": "string", "default": ""},
+                        "bucket": {"type": "string", "default": "", "description": "name of bucket"},
+                        "area": {"type": "string", "default": "", "description": "for example: oss-cn-shanghai"},
+                        "path": {"type": "string", "default": ""},
+                        "customUrl": {"type": "string", "default": ""},
+                        "options": {"type": "string", "default": ""}
+                    },
+                    "required": ["accessKeyId", "accessKeySecret", "bucket", "area"],
+                    "default": {
+                        "accessKeyId": "",
+                        "accessKeySecret": "",
+                        "bucket": "",
+                        "area": ""
+                    }
+                },
+                "upyun": {
+                    "properties": {
+                        "bucket": {"type": "string", "default": ""},
+                        "operator": {"type": "string", "default": ""},
+                        "password": {"type": "string", "default": ""},
+                        "options": {"type": "string", "default": ""},
+                        "path": {"type": "string", "default": ""},
+                        "url": {"type": "string", "default": ""}
+                    },
+                    "required": ["bucket", "operator", "password", "url"],
+                    "default": {
+                        "bucket": "",
+                        "operator": "",
+                        "password": "",
+                        "url": ""
+                    }
+                },
+
+                "smms-user": {
+                    "description": "$(extensions) smms-user: https://sm.ms/login\n\ninstall plugin: \"picgo install smms-user\"",
+                    "type": "object",
+                    "properties": {
+                        "Authorization": {"$ref": "#/definitions/token"}
+                    },
+                    "required": ["Authorization"],
+                    "default": {
+                        "Authorization": ""
+                    }
+                },
+                "gitee": {
+                    "description": "gitee support. Need to install plugin-gitee",
+                    "type": "object",
+                    "allOf": [
+                        {"$ref": "#/definitions/gitHosting"}
+                    ],
+                    "properties": {
+                        "customUrl": {"$ref": "#/definitions/customUrl"},
+                        "customPath": {"$ref": "#/definitions/customPath"}
+                    },
+                    "required": ["repo", "token"],
+                    "default": {
+                        "repo": "",
+                        "branch": "master",
+                        "token": ""
+                    }
+                },
+                "githubPlus": {
+                    "description": "gitee support. Need to install plugin-githubPlus",
+                    "type": "object",
+                    "allOf": [
+                        {"$ref": "#/definitions/gitHosting"}
+                    ],
+                    "properties": {
+                        "customUrl": {"$ref": "#/definitions/customUrl"},
+                        "origin": {"$ref": "#/definitions/origin", "default": "gitee"}
+                    },
+                    "required": ["repo", "token"],
+                    "default": {
+                        "repo": "",
+                        "branch": "master",
+                        "token": "",
+                        "origin": "gitee"
+                    }
+                },
+
+                "transformer": {
+                    "type": "string",
+                    "enum": [
+                        "path",
+                        "base64"
+                    ],
+                    "default": "path"
+                },
+
+                "current": {
+                    "description": "current uploader in use. Compatible for PicGo-GUI",
+                    "type": "string",
+                    "default": "smms"
+                }
+            }
+        },
+
+        "uploaded": {
+            "description": "🍁 Read Only!",
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "fileName": {"type": "string"},
+                    "width": {"type": "integer"},
+                    "height": {"type": "integer"},
+                    "extname": {"type": "string"},
+                    "imgUrl": {"type": "string"},
+                    "type": {"type": "string"},
+                    "id": {"type": "string"}
+                }
+            }
+        },
+        "settings": {
+            "type": "object",
+            "properties": {
+                "shortKey": {
+                    "type": "object",
+                    "properties": {
+                        "picgo:upload": {
+                            "type": "object",
+                            "properties": {
+                                "enable": {
+                                    "type": "boolean",
+                                    "default": true
+                                },
+                                "key": {
+                                    "type": "string",
+                                    "default": "CommandOrControl+Shift+P"
+                                },
+                                "name": {
+                                    "type": "string",
+                                    "default": "upload"
+                                },
+                                "label": {
+                                    "type": "string",
+                                    "default": "快捷上传"
+                                }
+                            },
+                            "required": ["enable", "key", "name", "label"],
+                            "additionalProperties": false
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                "showUpdateTip": {
+                    "type": "boolean",
+                    "default": false
+                },
+                "customLink": {
+                    "type": "string",
+                    "default": "![$fileName]($url)"
+                },
+                "autoStart": {
+                    "type": "boolean",
+                    "default": false
+                },
+                "miniWindowOntop": {
+                    "type": "boolean",
+                    "default": false
+                },
+                "uploadNotification": {
+                    "type": "boolean",
+                    "default": false
+                },
+                "autoRename": {
+                    "type": "boolean",
+                    "default": false
+                },
+                "pasteStyle": {
+                    "type": "string",
+                    "default": "markdown",
+                    "enum": ["markdown","HTML", "URL", "UBB", "Custom"]
+                },
+                "server": {
+                    "type": "object",
+                    "properties": {
+                        "enable": {
+                            "type": "boolean",
+                            "default": true
+                        },
+                        "host": {
+                            "type": "string",
+                            "default": "127.0.0.1"
+                        },
+                        "port": {
+                            "type": "string",
+                            "default": "36677",
+                            "pattern": "^[1-9][0-9]*$"
+                        }
+                    },
+                    "logLevel": {
+                        "type": "string",
+                        "default": "all"
+                    }
+                }
+            }
+        },
+        "picgoPlugins": {
+            "description": "🍁 Controls wether to active the plugin.",
+            "type": "object",
+            "patternProperties": {
+                "^picgo-plugin-.*$": {
+                    "type": "boolean",
+                    "default": true
+                }
+            }
+        }
+    }
+}

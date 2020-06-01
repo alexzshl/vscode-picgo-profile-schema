@@ -1,0 +1,35 @@
+{
+    "title": "picgo-profile-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "repo": {
+            "type": "string",
+            "description": "microsoft/vscode"
+        },
+        "branch": {
+            "type": "string",
+            "default": "master"
+        },
+        "token": {
+            "type": "string",
+            "pattern": "^[a-z0-9A-Z]*$"
+        },
+        "path": {
+            "type": "string"
+        },
+        "customUrl": {
+            "type": "string"
+        },
+        "customPath": {
+            "type": "string"
+        },
+        "origin": {
+            "description": "the git origin repository hosting, such as github/gitee",
+            "type": "string"
+        },
+        "string-empty": {"const": ""},
+        "string-not-empty": {
+            "not": {"$ref": "#/definitions/string-empty"}
+        }
+    }
+}

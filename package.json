@@ -1,0 +1,57 @@
+{
+    "name": "picgo-profile-schema",
+    "displayName": "Picgo Profile Schema",
+    "description": "Schema for picgo profile",
+    "publisher": "alexzshl",
+    "author": {
+        "name": "alexzshl",
+        "email": "alexzshl@126.com"
+    },
+    "license": "MIT",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.26.0"
+    },
+    "keywords": [
+        "picgo",
+        "settings",
+        "configuration",
+        "profile",
+        "schema",
+        "intellisense"
+    ],
+    "categories": [
+        "Other"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/alexzshl/vscode-picgo-profile-schema.git"
+    },
+    "bugs": {
+        "url": "https://github.com/alexzshl/vscode-picgo-profile-schema/issues"
+    },
+    "contributes": {
+        "snippets": [],
+        "jsonValidation": [
+            {
+                "fileMatch": [
+                    "picgo/data.json"
+                ],
+                "url": "./schemas/picgo-gui.profile.schema.json"
+            },
+            {
+                "fileMatch": [
+                    ".picgo/config.json"
+                ],
+                "url": "./schemas/picgo-core.profile.schema.json"
+            }
+        ]
+    },
+    "scripts": {
+		"vscode:package": "vsce package",
+		"vscode:publish": "vsce publish",
+		"vscode:publish-patch": "vsce publish patch",
+		"vscode:publish-minor": "vsce publish minor",
+		"vscode:publish-major": "vsce publish major"
+	}
+}
