@@ -35,7 +35,8 @@
         "jsonValidation": [
             {
                 "fileMatch": [
-                    "picgo/data.json"
+                    "picgo/data.json",
+                    "PicGo/data.json"
                 ],
                 "url": "./schemas/picgo-gui.profile.schema.json"
             },

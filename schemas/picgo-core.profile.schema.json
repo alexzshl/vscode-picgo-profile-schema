@@ -11,7 +11,6 @@
         },
         "branch": {
             "type": "string",
-            "not": {"$ref": "#/definitions/empty-string"},
             "default": "master"
         },
         "token": {
@@ -49,11 +48,13 @@
         "bucket": {
             "description": "name of bucket",
             "type": "string",
-            "default": ""
+            "default": "",
+            "pattern": ".+"
         },
         "area": {
             "type": "string",
-            "default": ""
+            "default": "",
+            "pattern": ".+"
         },
 
         "gitHosting": {
@@ -73,7 +74,7 @@
         "picBed": {
             "description": "Picgo main configuration:\nhttps://picgo.github.io/PicGo-Core-Doc/zh/guide/config.html#picbed\n\nBuilt in uploaders:\nsmms: SM.MS\ntcyun: 腾讯云COS\nupyun: 又拍云\naliyun: 阿里云OSS\nqiniu: 七牛云\nimgur: Imgur\nweibo: 微博图床\ngithub: Github\n更多图床支持请下载插件。\n",
             "properties": {
-                "uploder": {
+                "uploader": {
                     "description": "current uploader in use.",
                     "type": "string",
                     "default": "smms"
@@ -93,7 +94,8 @@
                     "type": "object",
                     "properties": {
                         "clientId": {
-                            "type": "string"
+                            "type": "string",
+                            "pattern": ".+"
                         },
                         "proxy": {
                             "description": "for example: http://127.0.0.1:1080",
@@ -126,7 +128,7 @@
                         "accessKey": {"$ref": "#/definitions/authKey"},
                         "secretKey": {"$ref": "#/definitions/authKey"},
                         "bucket": {"$ref": "#/definitions/bucket"},
-                        "url": {"$ref": "#/definitions/url"},
+                        "url": {"$ref": "#/definitions/url", "pattern": ".+"},
                         "area": {"$ref": "#/definitions/area"},
                         "options": {"$ref": "#/definitions/options"},
                         "path": {"$ref": "#/definitions/path"}
@@ -145,7 +147,7 @@
                         "secretId": {"$ref": "#/definitions/authId"},
                         "secretKey": {"$ref": "#/definitions/authKey"},
                         "bucket": {"$ref": "#/definitions/bucket"},
-                        "appId": {"type": "string", "default": ""},
+                        "appId": {"type": "string", "default": "", "pattern": ".+"},
                         "area": {"$ref": "#/definitions/area"},
                         "path": {"$ref": "#/definitions/path"},
                         "customUrl": {"$ref": "#/definitions/url"},
@@ -182,11 +184,11 @@
                 "upyun": {
                     "properties": {
                         "bucket": {"$ref": "#/definitions/bucket"},
-                        "operator": {"type": "string", "default": ""},
-                        "password": {"type": "string", "default": ""},
+                        "operator": {"type": "string", "default": "", "pattern": ".+"},
+                        "password": {"type": "string", "default": "", "pattern": ".+"},
                         "options": {"$ref": "#/definitions/options"},
                         "path": {"$ref": "#/definitions/path"},
-                        "url": {"$ref": "#/definitions/url"}
+                        "url": {"$ref": "#/definitions/url", "pattern": ".+"}
                     },
                     "required": ["bucket", "operator", "password", "url"],
                     "default": {
