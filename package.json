@@ -8,7 +8,7 @@
         "email": "alexzshl@126.com"
     },
     "license": "MIT",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "engines": {
         "vscode": "^1.26.0"
     },
@@ -48,10 +48,10 @@
         ]
     },
     "scripts": {
-		"vscode:package": "vsce package",
-		"vscode:publish": "vsce publish",
-		"vscode:publish-patch": "vsce publish patch",
-		"vscode:publish-minor": "vsce publish minor",
-		"vscode:publish-major": "vsce publish major"
-	}
+        "vscode:package": "vsce package",
+        "vscode:publish": "vsce publish",
+        "vscode:publish-patch": "vsce publish patch",
+        "vscode:publish-minor": "vsce publish minor",
+        "vscode:publish-major": "vsce publish major"
+    }
 }
