@@ -2,7 +2,9 @@
     "title": "picgo-core-profile-schema",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "definitions": {
-        "empty-string": {"const": ""},
+        "empty-string": {
+            "const": ""
+        },
         "repo": {
             "type": "string",
             "pattern": "^[\\w-]+/[\\w-]+$",
@@ -34,7 +36,6 @@
             "type": "string",
             "default": ""
         },
-
         "authId": {
             "type": "string",
             "default": "",
@@ -56,20 +57,30 @@
             "default": "",
             "pattern": ".+"
         },
-
         "gitHosting": {
             "comment": "general git hosting",
             "type": "object",
             "properties": {
-                "repo": {"$ref": "#/definitions/repo"},
-                "branch": {"$ref": "#/definitions/branch"},
-                "token": {"$ref": "#/definitions/token"},
-                "path": {"$ref": "#/definitions/path"}
+                "repo": {
+                    "$ref": "#/definitions/repo"
+                },
+                "branch": {
+                    "$ref": "#/definitions/branch"
+                },
+                "token": {
+                    "$ref": "#/definitions/token"
+                },
+                "path": {
+                    "$ref": "#/definitions/path"
+                }
             },
-            "required": ["repo", "branch", "token"]
+            "required": [
+                "repo",
+                "branch",
+                "token"
+            ]
         }
     },
-
     "properties": {
         "picBed": {
             "description": "Picgo main configuration:\nhttps://picgo.github.io/PicGo-Core-Doc/zh/guide/config.html#picbed\n\nBuilt in uploaders:\nsmms: SM.MS\ntcyun: 腾讯云COS\nupyun: 又拍云\naliyun: 阿里云OSS\nqiniu: 七牛云\nimgur: Imgur\nweibo: 微博图床\ngithub: Github\n更多图床支持请下载插件。\n",
@@ -79,11 +90,22 @@
                     "type": "string",
                     "default": "smms"
                 },
+                "transformer": {
+                    "type": "string",
+                    "enum": [
+                        "path",
+                        "base64"
+                    ],
+                    "default": "path"
+                },
                 "smms": {
-                    "description": "SM.MS:\nhttps://sm.ms/",
+                    "description": "SM.MS:\nhttps://sm.ms/\n",
                     "type": "object",
                     "properties": {
-                        "token": {"$ref": "#/definitions/token"}
+                        "token": {
+                            "description": "Please provide api token, see https://sm.ms/home/apitoken",
+                            "$ref": "#/definitions/token"
+                        }
                     },
                     "default": {
                         "token": ""
@@ -102,7 +124,9 @@
                             "type": "string"
                         }
                     },
-                    "required": ["clientId"],
+                    "required": [
+                        "clientId"
+                    ],
                     "default": {
                         "clientId": ""
                     }
@@ -110,13 +134,26 @@
                 "github": {
                     "description": "Github: https://github.com/",
                     "type": "object",
-                    "allOf": [{"$ref": "#/definitions/gitHosting"}],
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/gitHosting"
+                        }
+                    ],
                     "properties": {
-                        "repo": {"description": "The repository info, including username and reponame.\n\nFor example: if the repository url is \"https://github.com/microsoft/vscode\", the \"repo\" should be \"microsoft/vscode\""},
-                        "token": {"description": "Github tokens: https://github.com/settings/tokens"},
-                        "customUrl": {"$ref": "#/definitions/url"}
+                        "repo": {
+                            "description": "The repository info, including username and reponame.\n\nFor example: if the repository url is \"https://github.com/microsoft/vscode\", the \"repo\" should be \"microsoft/vscode\""
+                        },
+                        "token": {
+                            "description": "Github tokens: https://github.com/settings/tokens"
+                        },
+                        "customUrl": {
+                            "$ref": "#/definitions/url"
+                        }
                     },
-                    "required": ["repo", "token"],
+                    "required": [
+                        "repo",
+                        "token"
+                    ],
                     "default": {
                         "repo": "",
                         "branch": "master",
@@ -125,15 +162,35 @@
                 },
                 "qiniu": {
                     "properties": {
-                        "accessKey": {"$ref": "#/definitions/authKey"},
-                        "secretKey": {"$ref": "#/definitions/authKey"},
-                        "bucket": {"$ref": "#/definitions/bucket"},
-                        "url": {"$ref": "#/definitions/url", "pattern": ".+"},
-                        "area": {"$ref": "#/definitions/area"},
-                        "options": {"$ref": "#/definitions/options"},
-                        "path": {"$ref": "#/definitions/path"}
+                        "accessKey": {
+                            "$ref": "#/definitions/authKey"
+                        },
+                        "secretKey": {
+                            "$ref": "#/definitions/authKey"
+                        },
+                        "bucket": {
+                            "$ref": "#/definitions/bucket"
+                        },
+                        "url": {
+                            "$ref": "#/definitions/url",
+                            "pattern": ".+"
+                        },
+                        "area": {
+                            "$ref": "#/definitions/area"
+                        },
+                        "options": {
+                            "$ref": "#/definitions/options"
+                        },
+                        "path": {
+                            "$ref": "#/definitions/path"
+                        }
                     },
-                    "required": ["accessKey", "secretKey", "bucket", "url"],
+                    "required": [
+                        "accessKey",
+                        "secretKey",
+                        "bucket",
+                        "url"
+                    ],
                     "default": {
                         "accessKey": "",
                         "secretKey": "",
@@ -144,16 +201,45 @@
                 },
                 "tcyun": {
                     "properties": {
-                        "secretId": {"$ref": "#/definitions/authId"},
-                        "secretKey": {"$ref": "#/definitions/authKey"},
-                        "bucket": {"$ref": "#/definitions/bucket"},
-                        "appId": {"type": "string", "default": "", "pattern": ".+"},
-                        "area": {"$ref": "#/definitions/area"},
-                        "path": {"$ref": "#/definitions/path"},
-                        "customUrl": {"$ref": "#/definitions/url"},
-                        "version": {"type": "string", "default": "v5", "enum": ["v5", "v4"]}
+                        "secretId": {
+                            "$ref": "#/definitions/authId"
+                        },
+                        "secretKey": {
+                            "$ref": "#/definitions/authKey"
+                        },
+                        "bucket": {
+                            "$ref": "#/definitions/bucket"
+                        },
+                        "appId": {
+                            "type": "string",
+                            "default": "",
+                            "pattern": ".+"
+                        },
+                        "area": {
+                            "$ref": "#/definitions/area"
+                        },
+                        "path": {
+                            "$ref": "#/definitions/path"
+                        },
+                        "customUrl": {
+                            "$ref": "#/definitions/url"
+                        },
+                        "version": {
+                            "type": "string",
+                            "default": "v5",
+                            "enum": [
+                                "v5",
+                                "v4"
+                            ]
+                        }
                     },
-                    "required": ["secretId", "secretKey", "bucket", "appId", "area"],
+                    "required": [
+                        "secretId",
+                        "secretKey",
+                        "bucket",
+                        "appId",
+                        "area"
+                    ],
                     "default": {
                         "secretId": "",
                         "secretKey": "",
@@ -165,15 +251,35 @@
                 "aliyun": {
                     "description": "AliYun OSS: https://oss.console.aliyun.com/bucket",
                     "properties": {
-                        "accessKeyId": {"$ref": "#/definitions/authId"},
-                        "accessKeySecret": {"$ref": "#/definitions/authKey"},
-                        "bucket": {"$ref": "#/definitions/bucket"},
-                        "area": {"$ref": "#/definitions/area", "description": "for example: oss-cn-shanghai"},
-                        "path": {"$ref": "#/definitions/path"},
-                        "customUrl": {"$ref": "#/definitions/url"},
-                        "options": {"$ref": "#/definitions/options"}
+                        "accessKeyId": {
+                            "$ref": "#/definitions/authId"
+                        },
+                        "accessKeySecret": {
+                            "$ref": "#/definitions/authKey"
+                        },
+                        "bucket": {
+                            "$ref": "#/definitions/bucket"
+                        },
+                        "area": {
+                            "$ref": "#/definitions/area",
+                            "description": "for example: oss-cn-shanghai"
+                        },
+                        "path": {
+                            "$ref": "#/definitions/path"
+                        },
+                        "customUrl": {
+                            "$ref": "#/definitions/url"
+                        },
+                        "options": {
+                            "$ref": "#/definitions/options"
+                        }
                     },
-                    "required": ["accessKeyId", "accessKeySecret", "bucket", "area"],
+                    "required": [
+                        "accessKeyId",
+                        "accessKeySecret",
+                        "bucket",
+                        "area"
+                    ],
                     "default": {
                         "accessKeyId": "",
                         "accessKeySecret": "",
@@ -183,14 +289,36 @@
                 },
                 "upyun": {
                     "properties": {
-                        "bucket": {"$ref": "#/definitions/bucket"},
-                        "operator": {"type": "string", "default": "", "pattern": ".+"},
-                        "password": {"type": "string", "default": "", "pattern": ".+"},
-                        "options": {"$ref": "#/definitions/options"},
-                        "path": {"$ref": "#/definitions/path"},
-                        "url": {"$ref": "#/definitions/url", "pattern": ".+"}
+                        "bucket": {
+                            "$ref": "#/definitions/bucket"
+                        },
+                        "operator": {
+                            "type": "string",
+                            "default": "",
+                            "pattern": ".+"
+                        },
+                        "password": {
+                            "type": "string",
+                            "default": "",
+                            "pattern": ".+"
+                        },
+                        "options": {
+                            "$ref": "#/definitions/options"
+                        },
+                        "path": {
+                            "$ref": "#/definitions/path"
+                        },
+                        "url": {
+                            "$ref": "#/definitions/url",
+                            "pattern": ".+"
+                        }
                     },
-                    "required": ["bucket", "operator", "password", "url"],
+                    "required": [
+                        "bucket",
+                        "operator",
+                        "password",
+                        "url"
+                    ],
                     "default": {
                         "bucket": "",
                         "operator": "",
@@ -198,29 +326,41 @@
                         "url": ""
                     }
                 },
-
                 "smms-user": {
-                    "description": "$(extensions) smms-user: https://sm.ms/login\n\ninstall plugin: \"picgo install smms-user\"",
+                    "description": "$(extensions) smms-user: https://sm.ms/login\n\ninstall plugin: \"picgo install picgo-plugin-smms-user\"",
                     "type": "object",
                     "properties": {
-                        "Authorization": {"$ref": "#/definitions/token"}
+                        "Authorization": {
+                            "$ref": "#/definitions/token"
+                        }
                     },
-                    "required": ["Authorization"],
+                    "required": [
+                        "Authorization"
+                    ],
                     "default": {
                         "Authorization": ""
                     }
                 },
                 "gitee": {
-                    "description": "gitee support. Need to install plugin-gitee",
+                    "description": "$(extensions) gitee-uploader.\ninstall plugin: \"picgo install picgo-plugin-gitee-uploader\"",
                     "type": "object",
                     "allOf": [
-                        {"$ref": "#/definitions/gitHosting"}
+                        {
+                            "$ref": "#/definitions/gitHosting"
+                        }
                     ],
                     "properties": {
-                        "customUrl": {"$ref": "#/definitions/url"},
-                        "customPath": {"$ref": "#/definitions/path"}
+                        "customUrl": {
+                            "$ref": "#/definitions/url"
+                        },
+                        "customPath": {
+                            "$ref": "#/definitions/path"
+                        }
                     },
-                    "required": ["repo", "token"],
+                    "required": [
+                        "repo",
+                        "token"
+                    ],
                     "default": {
                         "repo": "",
                         "branch": "master",
@@ -228,16 +368,26 @@
                     }
                 },
                 "githubPlus": {
-                    "description": "gitee support. Need to install plugin-githubPlus",
+                    "description": "$(extensions) github-plus.\ninstall plugin: \"picgo install picgo-plugin-github-plus\"",
                     "type": "object",
                     "allOf": [
-                        {"$ref": "#/definitions/gitHosting"}
+                        {
+                            "$ref": "#/definitions/gitHosting"
+                        }
                     ],
                     "properties": {
-                        "customUrl": {"$ref": "#/definitions/url"},
-                        "origin": {"$ref": "#/definitions/origin", "default": "gitee"}
+                        "customUrl": {
+                            "$ref": "#/definitions/url"
+                        },
+                        "origin": {
+                            "$ref": "#/definitions/origin",
+                            "default": "gitee"
+                        }
                     },
-                    "required": ["repo", "token"],
+                    "required": [
+                        "repo",
+                        "token"
+                    ],
                     "default": {
                         "repo": "",
                         "branch": "master",
@@ -245,122 +395,18 @@
                         "origin": "gitee"
                     }
                 },
-
-                "transformer": {
-                    "type": "string",
-                    "enum": [
-                        "path",
-                        "base64"
-                    ],
-                    "default": "path"
-                },
-
                 "current": {
-                    "description": "current uploader in use. Compatible for PicGo-GUI",
+                    "description": "current uploader in use. Compatible keeping for PicGo-GUI",
                     "type": "string",
                     "default": "smms"
                 }
-            }
-        },
-
-        "uploaded": {
-            "description": "🍁 Read Only!",
-            "type": "array",
-            "items": {
-                "type": "object",
-                "properties": {
-                    "fileName": {"type": "string"},
-                    "width": {"type": "integer"},
-                    "height": {"type": "integer"},
-                    "extname": {"type": "string"},
-                    "imgUrl": {"type": "string"},
-                    "type": {"type": "string"},
-                    "id": {"type": "string"}
-                }
-            }
-        },
-        "settings": {
-            "type": "object",
-            "properties": {
-                "shortKey": {
-                    "type": "object",
-                    "properties": {
-                        "picgo:upload": {
-                            "type": "object",
-                            "properties": {
-                                "enable": {
-                                    "type": "boolean",
-                                    "default": true
-                                },
-                                "key": {
-                                    "type": "string",
-                                    "default": "CommandOrControl+Shift+P"
-                                },
-                                "name": {
-                                    "type": "string",
-                                    "default": "upload"
-                                },
-                                "label": {
-                                    "type": "string",
-                                    "default": "快捷上传"
-                                }
-                            },
-                            "required": ["enable", "key", "name", "label"],
-                            "additionalProperties": false
-                        }
-                    },
-                    "additionalProperties": false
+            },
+            "default": {
+                "uploader": "smms",
+                "smms": {
+                    "token": ""
                 },
-                "showUpdateTip": {
-                    "type": "boolean",
-                    "default": false
-                },
-                "customLink": {
-                    "type": "string",
-                    "default": "![$fileName]($url)"
-                },
-                "autoStart": {
-                    "type": "boolean",
-                    "default": false
-                },
-                "miniWindowOntop": {
-                    "type": "boolean",
-                    "default": false
-                },
-                "uploadNotification": {
-                    "type": "boolean",
-                    "default": false
-                },
-                "autoRename": {
-                    "type": "boolean",
-                    "default": false
-                },
-                "pasteStyle": {
-                    "type": "string",
-                    "default": "markdown",
-                    "enum": ["markdown","HTML", "URL", "UBB", "Custom"]
-                },
-                "server": {
-                    "type": "object",
-                    "properties": {
-                        "enable": {
-                            "type": "boolean",
-                            "default": true
-                        },
-                        "host": {
-                            "type": "string",
-                            "default": "127.0.0.1"
-                        },
-                        "port": {
-                            "type": "string",
-                            "default": 36677
-                        }
-                    },
-                    "logLevel": {
-                        "type": "string",
-                        "default": "all"
-                    }
-                }
+                "current": "smms"
             }
         },
         "picgoPlugins": {
@@ -371,7 +417,18 @@
                     "type": "boolean",
                     "default": true
                 }
-            }
+            },
+            "default": {}
         }
+    },
+    "default": {
+        "picBed": {
+            "uploader": "smms",
+            "smms": {
+                "token": ""
+            },
+            "current": "smms"
+        },
+        "picgoPlugins": {}
     }
 }
