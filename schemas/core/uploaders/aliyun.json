@@ -1,0 +1,42 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "uploader-aliyun-schema",
+    "$comment": "阿里云OSS 图床设置",
+    "description": "AliYun OSS: https://oss.console.aliyun.com/bucket",
+    "properties": {
+        "accessKeyId": {
+            "$ref": "../../common/definitions.json#/definitions/authId"
+        },
+        "accessKeySecret": {
+            "$ref": "../../common/definitions.json#/definitions/authKey"
+        },
+        "bucket": {
+            "$ref": "../../common/definitions.json#/definitions/bucket"
+        },
+        "area": {
+            "$ref": "../../common/definitions.json#/definitions/area",
+            "description": "for example: oss-cn-shanghai"
+        },
+        "path": {
+            "$ref": "../../common/definitions.json#/definitions/path"
+        },
+        "customUrl": {
+            "$ref": "../../common/definitions.json#/definitions/url"
+        },
+        "options": {
+            "$ref": "../../common/definitions.json#/definitions/options"
+        }
+    },
+    "required": [
+        "accessKeyId",
+        "accessKeySecret",
+        "bucket",
+        "area"
+    ],
+    "default": {
+        "accessKeyId": "",
+        "accessKeySecret": "",
+        "bucket": "",
+        "area": ""
+    }
+}

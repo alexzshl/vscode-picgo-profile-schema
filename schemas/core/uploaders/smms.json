@@ -1,0 +1,16 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "uploader-smms-schema",
+    "$comment": "SM.MS 图床设置",
+    "description": "SM.MS:\nhttps://sm.ms/\n",
+    "type": "object",
+    "properties": {
+        "token": {
+            "description": "Please provide api token, see https://sm.ms/home/apitoken",
+            "$ref": "../../common/definitions.json#/definitions/token"
+        }
+    },
+    "default": {
+        "token": ""
+    }
+}

@@ -1,0 +1,18 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "uploader-github-schema",
+    "$comment": "SM.MS 注册用户图床设置：带API-Token",
+    "description": "$(extensions) smms-user: https://sm.ms/login\n\ninstall plugin: \"picgo install picgo-plugin-smms-user\"",
+    "type": "object",
+    "properties": {
+        "Authorization": {
+            "$ref": "../../common/definitions.json#/definitions/token"
+        }
+    },
+    "required": [
+        "Authorization"
+    ],
+    "default": {
+        "Authorization": ""
+    }
+}

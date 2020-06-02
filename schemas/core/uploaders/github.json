@@ -1,0 +1,31 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "uploader-github-schema",
+    "$comment": "Github 图床设置",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "../../common/definitions.json#/definitions/gitHosting"
+        }
+    ],
+    "properties": {
+        "repo": {
+            "description": "The repository info, including username and reponame.\n\nFor example: if the repository url is \"https://github.com/microsoft/vscode\", the \"repo\" should be \"microsoft/vscode\""
+        },
+        "token": {
+            "description": "Github tokens: https://github.com/settings/tokens"
+        },
+        "customUrl": {
+            "$ref": "../../common/definitions.json#/definitions/url"
+        }
+    },
+    "required": [
+        "repo",
+        "token"
+    ],
+    "default": {
+        "repo": "",
+        "branch": "master",
+        "token": ""
+    }
+}

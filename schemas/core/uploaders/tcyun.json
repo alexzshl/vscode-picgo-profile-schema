@@ -1,0 +1,52 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "uploader-tcyun-schema",
+    "$comment": "腾讯云COS 图床设置",
+    "properties": {
+        "secretId": {
+            "$ref": "../../common/definitions.json#/definitions/authId"
+        },
+        "secretKey": {
+            "$ref": "../../common/definitions.json#/definitions/authKey"
+        },
+        "bucket": {
+            "$ref": "../../common/definitions.json#/definitions/bucket"
+        },
+        "appId": {
+            "type": "string",
+            "default": "",
+            "pattern": ".+"
+        },
+        "area": {
+            "$ref": "../../common/definitions.json#/definitions/area"
+        },
+        "path": {
+            "$ref": "../../common/definitions.json#/definitions/path"
+        },
+        "customUrl": {
+            "$ref": "../../common/definitions.json#/definitions/url"
+        },
+        "version": {
+            "type": "string",
+            "default": "v5",
+            "enum": [
+                "v5",
+                "v4"
+            ]
+        }
+    },
+    "required": [
+        "secretId",
+        "secretKey",
+        "bucket",
+        "appId",
+        "area"
+    ],
+    "default": {
+        "secretId": "",
+        "secretKey": "",
+        "appId": "",
+        "bucket": "",
+        "area": ""
+    }
+}

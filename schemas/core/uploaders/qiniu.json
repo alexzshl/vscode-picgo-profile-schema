@@ -1,0 +1,42 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "uploader-qiniu-schema",
+    "$comment": "七牛云 图床设置",
+    "properties": {
+        "accessKey": {
+            "$ref": "../../common/definitions.json#/definitions/authKey"
+        },
+        "secretKey": {
+            "$ref": "../../common/definitions.json#/definitions/authKey"
+        },
+        "bucket": {
+            "$ref": "../../common/definitions.json#/definitions/bucket"
+        },
+        "url": {
+            "$ref": "../../common/definitions.json#/definitions/url",
+            "pattern": ".+"
+        },
+        "area": {
+            "$ref": "../../common/definitions.json#/definitions/area"
+        },
+        "options": {
+            "$ref": "../../common/definitions.json#/definitions/options"
+        },
+        "path": {
+            "$ref": "../../common/definitions.json#/definitions/path"
+        }
+    },
+    "required": [
+        "accessKey",
+        "secretKey",
+        "bucket",
+        "url"
+    ],
+    "default": {
+        "accessKey": "",
+        "secretKey": "",
+        "bucket": "",
+        "area": "",
+        "url": ""
+    }
+}

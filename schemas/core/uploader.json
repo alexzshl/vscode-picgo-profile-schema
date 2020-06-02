@@ -1,0 +1,5 @@
+{
+    "description": "current uploader in use.",
+    "type": "string",
+    "default": "smms"
+}

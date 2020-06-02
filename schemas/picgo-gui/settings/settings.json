@@ -1,0 +1,95 @@
+{
+    "type": "object",
+    "properties": {
+        "shortKey": {
+            "type": "object",
+            "properties": {
+                "picgo:upload": {
+                    "type": "object",
+                    "properties": {
+                        "enable": {
+                            "type": "boolean",
+                            "default": true
+                        },
+                        "key": {
+                            "type": "string",
+                            "default": "CommandOrControl+Shift+P"
+                        },
+                        "name": {
+                            "type": "string",
+                            "default": "upload"
+                        },
+                        "label": {
+                            "type": "string",
+                            "default": "快捷上传"
+                        }
+                    },
+                    "required": [
+                        "enable",
+                        "key",
+                        "name",
+                        "label"
+                    ],
+                    "additionalProperties": false
+                }
+            },
+            "additionalProperties": false
+        },
+        "showUpdateTip": {
+            "type": "boolean",
+            "default": false
+        },
+        "customLink": {
+            "type": "string",
+            "default": "![$fileName]($url)"
+        },
+        "autoStart": {
+            "type": "boolean",
+            "default": false
+        },
+        "miniWindowOntop": {
+            "type": "boolean",
+            "default": false
+        },
+        "uploadNotification": {
+            "type": "boolean",
+            "default": false
+        },
+        "autoRename": {
+            "type": "boolean",
+            "default": false
+        },
+        "pasteStyle": {
+            "type": "string",
+            "default": "markdown",
+            "enum": [
+                "markdown",
+                "HTML",
+                "URL",
+                "UBB",
+                "Custom"
+            ]
+        },
+        "server": {
+            "type": "object",
+            "properties": {
+                "enable": {
+                    "type": "boolean",
+                    "default": true
+                },
+                "host": {
+                    "type": "string",
+                    "default": "127.0.0.1"
+                },
+                "port": {
+                    "type": "integer",
+                    "default": 36677
+                }
+            },
+            "logLevel": {
+                "type": "string",
+                "default": "all"
+            }
+        }
+    }
+}

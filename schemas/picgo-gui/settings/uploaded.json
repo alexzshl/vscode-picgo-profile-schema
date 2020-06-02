@@ -1,0 +1,30 @@
+{
+    "description": "🍁 Read Only!",
+    "type": "array",
+    "items": {
+        "type": "object",
+        "properties": {
+            "fileName": {
+                "type": "string"
+            },
+            "width": {
+                "type": "integer"
+            },
+            "height": {
+                "type": "integer"
+            },
+            "extname": {
+                "type": "string"
+            },
+            "imgUrl": {
+                "type": "string"
+            },
+            "type": {
+                "type": "string"
+            },
+            "id": {
+                "type": "string"
+            }
+        }
+    }
+}

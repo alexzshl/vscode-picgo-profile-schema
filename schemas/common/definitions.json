@@ -1,0 +1,84 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "empty-string": {
+            "const": ""
+        },
+        "repo": {
+            "type": "string",
+            "pattern": "^[\\w-]+/[\\w-]+$",
+            "default": "",
+            "description": "The name of your repo, include username and reponame. For example: \"microsoft/vscode\""
+        },
+        "branch": {
+            "type": "string",
+            "default": "master"
+        },
+        "token": {
+            "type": "string",
+            "default": "",
+            "pattern": "^[a-z0-9A-Z]+$"
+        },
+        "path": {
+            "type": "string",
+            "default": ""
+        },
+        "url": {
+            "type": "string",
+            "default": ""
+        },
+        "origin": {
+            "description": "the git origin repository hosting, such as github/gitee",
+            "type": "string"
+        },
+        "options": {
+            "type": "string",
+            "default": ""
+        },
+        "authId": {
+            "type": "string",
+            "default": "",
+            "pattern": "^[a-z0-9A-Z]+$"
+        },
+        "authKey": {
+            "type": "string",
+            "default": "",
+            "pattern": "^[a-z0-9A-Z]+$"
+        },
+        "bucket": {
+            "description": "name of bucket",
+            "type": "string",
+            "default": "",
+            "pattern": ".+"
+        },
+        "area": {
+            "type": "string",
+            "default": "",
+            "pattern": ".+"
+        },
+
+        "gitHosting": {
+            "comment": "general git hosting",
+            "type": "object",
+            "properties": {
+                "repo": {
+                    "$ref": "#/definitions/repo"
+                },
+                "branch": {
+                    "$ref": "#/definitions/branch"
+                },
+                "token": {
+                    "$ref": "#/definitions/token"
+                },
+                "path": {
+                    "$ref": "#/definitions/path"
+                }
+            },
+            "required": [
+                "repo",
+                "branch",
+                "token"
+            ]
+        }
+    }
+}

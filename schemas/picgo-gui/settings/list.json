@@ -1,0 +1,71 @@
+{
+    "description": "List of picbeds, atuo created by picgo-electron.\nDon't modify the property \"type\" of each picbed!!!",
+    "type": "array",
+    "items": {
+        "type": "object",
+        "properties": {
+            "name": {
+                "type": "string",
+                "readOnly": true
+            },
+            "type": {
+                "type": "string",
+                "readOnly": true
+            },
+            "visible": {
+                "type": "boolean",
+                "default": true
+            }
+        },
+        "required": [
+            "name",
+            "type",
+            "visible"
+        ],
+        "additionalProperties": false
+    },
+    "additionalItems": true,
+    "uniqueItems": true,
+    "default": [
+        {
+            "name": "SM.MS图床",
+            "type": "smms",
+            "visible": true
+        },
+        {
+            "name": "腾讯云COS",
+            "type": "tcyun",
+            "visible": false
+        },
+        {
+            "name": "微博图床",
+            "type": "weibo",
+            "visible": false
+        },
+        {
+            "name": "GitHub图床",
+            "type": "github",
+            "visible": true
+        },
+        {
+            "name": "七牛图床",
+            "type": "qiniu",
+            "visible": true
+        },
+        {
+            "name": "Imgur图床",
+            "type": "imgur",
+            "visible": false
+        },
+        {
+            "name": "阿里云OSS",
+            "type": "aliyun",
+            "visible": true
+        },
+        {
+            "name": "又拍云图床",
+            "type": "upyun",
+            "visible": false
+        }
+    ]
+}

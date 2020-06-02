@@ -1,0 +1,16 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "properties": {
+        "picgoPlugins": {
+            "description": "Controls wether to active the plugin.",
+            "type": "object",
+            "patternProperties": {
+                "^picgo-plugin-.*$": {
+                    "type": "boolean",
+                    "default": true
+                }
+            },
+            "default": {}
+        }
+    }
+}

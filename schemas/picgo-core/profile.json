@@ -1,0 +1,27 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "properties": {
+        "picBed": {
+            "description": "Picgo main configuration:\nhttps://picgo.github.io/PicGo-Core-Doc/zh/guide/config.html#picbed\n\nBuilt in uploaders:\nsmms: SM.MS\ntcyun: 腾讯云COS\nupyun: 又拍云\naliyun: 阿里云OSS\nqiniu: 七牛云\nimgur: Imgur\nweibo: 微博图床\ngithub: Github\n更多图床支持请下载插件。\n",
+            "properties": {
+                "uploder": {"$ref": "../core/uploader.json#"},
+                "current": {"$ref": "../core/uploader.json#"},
+                "smms":    {"$ref": "../core/uploaders/smms.json#"},
+                "imgur":   {"$ref": "../core/uploaders/imgur.json#"},
+                "github":  {"$ref": "../core/uploaders/github.json#"},
+                "qiniu":   {"$ref": "../core/uploaders/qiniu.json#"},
+                "upyun":   {"$ref": "../core/uploaders/upyun.json#"},
+                "tcyun":   {"$ref": "../core/uploaders/tcyun.json#"},
+                "aliyun":  {"$ref": "../core/uploaders/aliyun.json#"}
+            },
+            "default": {
+                "uploader": "smms",
+                "smms": {
+                    "token": ""
+                },
+                "current": "smms"
+            }
+        },
+        "picgoPlugins": {"$ref": "../core/picgoPlugins.json#"}
+    }
+}

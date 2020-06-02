@@ -1,0 +1,23 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "uploader-imgur-schema",
+    "$comment": "Imgur 图床设置",
+    "description": "Imgur: https://imgur.com/",
+    "type": "object",
+    "properties": {
+        "clientId": {
+            "type": "string",
+            "pattern": ".+"
+        },
+        "proxy": {
+            "description": "for example: http://127.0.0.1:1080",
+            "type": "string"
+        }
+    },
+    "required": [
+        "clientId"
+    ],
+    "default": {
+        "clientId": ""
+    }
+}
