@@ -46,7 +46,7 @@ Initial release
 
 ## Contribution
 
-The Schema file is still to be perfected, especially in the descriptions (mouse-over prompt) section. Please help refine and promote its standardization.
+The Schema file is still to be perfected, especially the descriptions of each uploader.
 
 1. A little knowledge of [JSON Schema](http://json-schema.org/).
 2. Edit docs in `./schemas`.
