@@ -39,10 +39,5 @@ PicGo-Core and Picgo-electron has different defalt profile path.
 ## Known Issues
 
 ## Contribution
-
-The Schema file is still to be perfected, especially the descriptions of each uploader.
-
-1. A little knowledge of [JSON Schema](http://json-schema.org/).
-2. Edit docs in `./schemas`.
-
+[JSON Schema](http://json-schema.org/)
 -----------------------------------------------------------------------------------------------------------
