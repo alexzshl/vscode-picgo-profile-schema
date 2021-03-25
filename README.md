@@ -12,14 +12,12 @@ This extension provides schema for profile of picgo:
 推荐将vscode作为json文件的默认打开方式。如果使用typora，设置中有按钮可以直接打开picgo-core配置文件。
 如果有需要，后面会添加几个命令用于从vscode直接打开配置文件。
 
-你也可以不用安装vscode插件, 只需要在 config.json 中 "picBed" 的上面添加模式文件即可.
+你也可以不用安装此vscode插件, 只需要在 config.json 中 添加模式文件(picgo-core):
 ```json
 {
   "$schema": "https://gitee.com/alexzshl/vscode-picgo-profile-schema/raw/master/schemas/picgo-core.profile.schema.json",
   
-  "picbed": {
-    ...
-  }
+  "picbed": {}
 }
 ```
 
