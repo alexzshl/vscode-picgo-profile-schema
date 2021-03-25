@@ -46,5 +46,7 @@ PicGo-Core and Picgo-electron has different defalt profile path.
 ## Known Issues
 
 ## Contribution
+
+## About
 [JSON Schema](http://json-schema.org/)
 -----------------------------------------------------------------------------------------------------------
