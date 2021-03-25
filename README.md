@@ -10,7 +10,7 @@
 
 可以简单理解为：为 picogo-core/picgo-electron 的 JSON 配置文件提供代码提示!
 
-你也可以不用安装此vscode插件, 只需要在 config.json 中 添加模式文件(picgo-core):
+你也可以不用安装此vscode插件, 只需要在 config.json 中 声明模式文件的地址:
 ```json
 {
   "$schema": "https://gitee.com/alexzshl/vscode-picgo-profile-schema/raw/master/schemas/picgo-core.profile.schema.json",
