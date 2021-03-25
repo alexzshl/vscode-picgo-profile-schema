@@ -4,7 +4,7 @@
 
 [![vsm-version](https://img.shields.io/visual-studio-marketplace/v/alexzshl.picgo-profile-schema?style=flat-square&label=VS%20Marketplace&logo=visual-studio-code)](https://marketplace.visualstudio.com/items?itemName=alexzshl.picgo-profile-schema)
 
-This extension provides schema for profile of picgo:
+这是一个 vscode 插件, 用于为以下 picgo 版本提供模式文件(schema):
 - [PicGo-Core](https://picgo.github.io/PicGo-Core-Doc/)
 - [Picgo-electron](https://picgo.github.io/PicGo-Doc/)
 
@@ -21,17 +21,15 @@ This extension provides schema for profile of picgo:
 }
 ```
 
-## Features
+## 特性
 
-Picgo-electron users can have gui interface for configuration, but PicGo-Core users can only use the cli tool. With all due respect, it's not a good experience to configure dozens of settings with cli. So I wrote this extension to provide json schema foundation for picgo profile.
-
-**JSON Schema** provides data validation, more importantly, we can get smart tips after opening picgo profile with VSCode.
+Picgo-electron 拥有 GUI 界面, 因此可以方便地进行配置, 但是 picgo-core 目前只支持通过cli工具进行配置或者对照api文档手动修改配置文件. 此插件根据官方文档编写了模式文件, 当使用vscode打开配置文件后, 将获得配置验证和代码提示的功能. 顺便地, 也为 picgo-electron 的配置文件进行了支持.
 
 ![image-20200601183545081](./media/picgo.gif)
 
-### Profile Path
+### 配置文件路径
 
-PicGo-Core and Picgo-electron has different defalt profile path.
+PicGo-Core 和 Picgo-electron 使用不同的配置文件路径, 在不同的操作系统上也有所区别
 
 ##### PicGo-Core
 
@@ -45,10 +43,8 @@ PicGo-Core and Picgo-electron has different defalt profile path.
 - Linux: `$XDG_CONFIG_HOME/picgo/data.json` or `~/.config/picgo/data.json`
 - macOS: `~/Library/Application/Support/picgo/data.json`
 
-## Requirements
+## 贡献
 
-## Known Issues
-
-## Contribution
+## 参考
 [JSON Schema](http://json-schema.org/)
 -----------------------------------------------------------------------------------------------------------
