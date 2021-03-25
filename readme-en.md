@@ -1,5 +1,7 @@
 # Picgo Profile Schema
 
+[中文](readme.md)
+
 [![vsm-version](https://img.shields.io/visual-studio-marketplace/v/alexzshl.picgo-profile-schema?style=flat-square&label=VS%20Marketplace&logo=visual-studio-code)](https://marketplace.visualstudio.com/items?itemName=alexzshl.picgo-profile-schema)
 
 This extension provides schema for profile of picgo:
