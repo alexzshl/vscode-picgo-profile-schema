@@ -21,6 +21,8 @@
 }
 ```
 
+对于 typora 用户, 如果 vscode 是默认的 json 文件打开方式, typora 的图床配置中可以直接点击打开 picgo-core 的配置文件.
+
 ## 特性
 
 Picgo-electron 拥有 GUI 界面, 因此可以方便地进行配置, 但是 picgo-core 目前只支持通过cli工具进行配置或者对照api文档手动修改配置文件. 此插件根据官方文档编写了模式文件, 当使用vscode打开配置文件后, 将获得配置验证和代码提示的功能. 顺便地, 也为 picgo-electron 的配置文件进行了支持.
