@@ -1,6 +1,6 @@
 # Picgo Profile Schema
 
-[ENGLISH](readme-en.md)
+[ENGLISH](README-EN.md)
 
 [![vsm-version](https://img.shields.io/visual-studio-marketplace/v/alexzshl.picgo-profile-schema?style=flat-square&label=VS%20Marketplace&logo=visual-studio-code)](https://marketplace.visualstudio.com/items?itemName=alexzshl.picgo-profile-schema)
 
