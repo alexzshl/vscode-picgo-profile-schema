@@ -8,9 +8,7 @@
 - [PicGo-Core](https://picgo.github.io/PicGo-Core-Doc/)
 - [Picgo-electron](https://picgo.github.io/PicGo-Doc/)
 
-可以简单理解为：为使用picogo-core的用户提供配置文件的代码提示，当然你必需使用vscode打开配置文件。
-推荐将vscode作为json文件的默认打开方式。如果使用typora，设置中有按钮可以直接打开picgo-core配置文件。
-如果有需要，后面会添加几个命令用于从vscode直接打开配置文件。
+可以简单理解为：为 picogo-core/picgo-electron 的 JSON 配置文件提供代码提示!
 
 你也可以不用安装此vscode插件, 只需要在 config.json 中 添加模式文件(picgo-core):
 ```json
