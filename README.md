@@ -3,6 +3,7 @@
 [ENGLISH](README-EN.md)
 
 [![vsm-version](https://img.shields.io/visual-studio-marketplace/v/alexzshl.picgo-profile-schema?style=flat-square&label=VS%20Marketplace&logo=visual-studio-code)](https://marketplace.visualstudio.com/items?itemName=alexzshl.picgo-profile-schema)
+[![Deploy Extension with vsce](https://github.com/alexzshl/vscode-picgo-profile-schema/actions/workflows/vsce.yml/badge.svg)](https://github.com/alexzshl/vscode-picgo-profile-schema/actions/workflows/vsce.yml)
 
 这是一个 vscode 插件, 用于为以下 picgo 版本提供模式文件(schema):
 - [PicGo-Core](https://picgo.github.io/PicGo-Core-Doc/)
