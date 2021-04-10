@@ -48,7 +48,6 @@ PicGo-Core 和 Picgo-electron 使用不同的配置文件路径, 在不同的操
 - 阿里云: [aliyun.md](./manual/uploaders/aliyun.md)
 
 ## 贡献
-如果有
 
 ## 参考
 [JSON Schema](http://json-schema.org/)
