@@ -11,7 +11,7 @@ This extension provides schema for profile of picgo:
 You can add the schema file reference to config.json (picgo-core), then you don't need to install this vscode extension.
 ```json
 {
-  "$schema": "https://gitee.com/alexzshl/vscode-picgo-profile-schema/raw/master/schemas/picgo-core.profile.schema.json",
+  "$schema": "https://github.com/alexzshl/vscode-picgo-profile-schema/raw/master/schemas/picgo-core.profile.schema.json",
   
   "picbed": {}
 }
@@ -49,4 +49,3 @@ PicGo-Core and Picgo-electron has different defalt profile path.
 
 ## About
 [JSON Schema](http://json-schema.org/)
------------------------------------------------------------------------------------------------------------
