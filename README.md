@@ -43,7 +43,12 @@ PicGo-Core 和 Picgo-electron 使用不同的配置文件路径, 在不同的操
 - Linux: `$XDG_CONFIG_HOME/picgo/data.json` or `~/.config/picgo/data.json`
 - macOS: `~/Library/Application/Support/picgo/data.json`
 
+## 图床简介
+图床入门简介:
+- 阿里云: [aliyun.md](./manual/uploaders/aliyun.md)
+
 ## 贡献
+如果有
 
 ## 参考
 [JSON Schema](http://json-schema.org/)

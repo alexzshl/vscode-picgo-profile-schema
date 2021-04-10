@@ -23,7 +23,6 @@
     "categories": [
         "Other"
     ],
-    "icon": "logo.png",
     "repository": {
         "type": "git",
         "url": "https://github.com/alexzshl/vscode-picgo-profile-schema.git"
