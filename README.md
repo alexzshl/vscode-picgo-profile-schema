@@ -10,15 +10,6 @@
 
 可以简单理解为：为 picogo-core/picgo-electron 的 JSON 配置文件提供代码提示!
 
-你也可以不用安装此vscode插件, 只需要在 config.json 中 声明模式文件的地址:
-```json
-{
-  "$schema": "https://gitee.com/alexzshl/vscode-picgo-profile-schema/raw/master/schemas/picgo-core.profile.schema.json",
-  
-  "picbed": {}
-}
-```
-
 对于 typora 用户, 如果 vscode 是默认的 json 文件打开方式, typora 的图床配置中可以直接点击打开 picgo-core 的配置文件.
 
 ## 特性
